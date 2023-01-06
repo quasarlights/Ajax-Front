@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="/whisper" method="post" id="formulario">
+        <!--charge DATA-->
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="url">Video's URL:</label><br>
+        <input type="text" id="url" name="url"><br>
+        <label for="email">E-mail:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="note">Note:</label><br>
+        <textarea name="note" id="note" cols="30" rows="10">Enter text here...</textarea><br>
+            <input type="submit" id="submitButton" value="Submit"><br>
+
+        <!--ID generated-->
+        <br><p>Register with ID:</p><br>
+            <input type="submit" value="Whisper"><br>
+
+        <!--Text Whispered-->
+        <br><p>Transcribed Video's Audio:</p><br>
+
+
+    </form>
+
+    <div id="resultados"></div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="ajax.js"></script>
+    
+</body>
+</html>
