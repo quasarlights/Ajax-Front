@@ -19,11 +19,21 @@
         <label for="note">Note:</label><br>
         <textarea name="note" id="note" cols="30" rows="10">Enter text here...</textarea><br>
             <input type="submit" id="submitButton" value="Submit"><br>
+    </form>
 
-        <!--ID generated-->
+    
+        <!--ID generated
         <br><p>Register with ID:</p><br>
-            <input type="submit" id="btn-chargeVideo" value="Charge Video"><br>
+            <button id="btn-chargeVideo" onclick="console.log(getElementById('resultados').textContent)">Charge Video Btn</button>-->
+            <!--<input type="submit" id="btn-chargeVideo" value="Charge Video"><br>-->
 
+            <br><p>Register with ID:</p><br>
+            <button id="btn-chargeVideo">Charge Video Btn</button>-->
+        
+
+<button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button>
+
+<p id="demo"></p>
         <!--Whisper-->
         <br><p>Let video Whisper:</p><br>
         <input type="submit" value="Whisper"><br>
@@ -32,12 +42,13 @@
         <br><p>Transcribed Video's Audio:</p><br>
 
 
-    </form>
+    
 
     <div id="resultados"></div>
     
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="ajax.js"></script>
-    
+    <script src="ajax2b.js"></script>
+
 </body>
 </html>

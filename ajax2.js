@@ -17,7 +17,10 @@ let form= document.querySelector('#formulario')
 form.addEventListener('submit', function(e){
 
     e.preventDefault();
-    convertData();whisper
+    convertData();
+    enviarDatos(sendInfo);
+    enviarFormulario();
+    
 ////////////////CHARGE VIDEO
 
 //chargeVideo.click(cargarVideo());
@@ -56,29 +59,47 @@ function enviarDatos(SendInfo){
             traditional: true,
             success: function (data) {
                 $("#resultados").text(data);
+               
             }
         });
     }
 
-//CARGAR VIDEO
-    let chargeVideo = $('#btn-chargeVideo');
-    let videoId= $('#resultados').textContent();
+    
+    })///aca termina el ADDEVENTLISTENER del form/////////////////////
 
-    function cargarVideo(videoId) {
+    /* <!--ID generated-->
+     <br><p>Register with ID:</p><br>
 
-        chargeVideo.preventDefault();
-        console.log(videoId);
+     <button id="btn-chargeVideo" onclick="console.log(getElementById('resultados').textContent)">Charge Video Btn</button>*/
+   
+     
+    
+    
+
+    //btnChargeVideo.onclick= function(){console.log("helloooo")}
         
-    }
-
 
 })
 
-})
+let hello= document.querySelector('#btn-hello')
+
+     hello.onclick= function ciao() {console.log("ciao")}
+
+   
+        
 
 
+
+
+
+//CARGAR VIDEO
 
 /*
+       
+
+
+
+
 var conexion1;
 function enviarFormulario() 
 {
@@ -119,3 +140,4 @@ $(this).parents('table').find('input:checked').each(function () {
     SendInfo.push(domain);
 });
 */
+
