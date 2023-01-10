@@ -6,33 +6,79 @@ $(function(){
      chargeVideo.onclick= function printId() {
         if (resultados.textContent !==null){
             console.log(resultados.textContent)
-            console.log(videoId+" esta es la variable videoId");
+            console.log(" esta es la variable videoId");
             enviarId();
         }else{
             console.log("wait for ID");
         }
     }
 
-    let videoId= resultados.textContent
+    /*let videoId= resultados.textContent
+    function enviarId() {
+            let id= resultados.textContent
+            $.get("http://localhost:5000/api/movies/whisper", { id : id }, llegadaDatos);
+            return true;
+        }*/
+        //La función que se ejecuta cuando llegan los datos del servidor recibe un string:
+        function enviarId() {
+            let id= resultados.textContent
+            
+            $.ajax({
+              async: true,
+              type: "GET",
+              dataType: "html",
+              contentType: "application/x-www-form-urlencoded",
+              url: "http://localhost:5000/api/movies/whisper",
+              data: "id=" + id,
+              beforeSend: inicioEnvio,
+              success: llegadaDatos,
+              timeout: 4000,
+              error: problemas
+            });
+            return false;
+          }
 
-    function FillData() {
-        var param = $("#<%= TextBox1.ClientID %>").val();
-        $("#tbDetails").append("<img src='Images/loading.gif'/>");
-        $.ajax({
-            type: "POST",/*method type*/
-            contentType: "application/json; charset=utf-8",
-            url: "Default.aspx/BindDatatable",/*Target function that will be return result*/
-            data: '{"data":"' + param + '"}',/*parameter pass data is parameter name param is value */
-            dataType: "json",
-            success: function(data) {
-                   alert("Success");
+        function llegadaDatos(datos) {
+            alert(datos);
+        }
+
+
+        function inicioEnvio() {
+            alert("inicio envio!")
+        }
+
+        function problemas() {
+            alert("problemas!")
+        }
+          
+        
+        });//end general function, dont touch it  
+
+
+
+
+
+   /* function enviarId() {
+
+        let id= resultados.textContent
+
+            $.ajax({
+                type: 'get',
+                url: 'http://127.0.0.1:5000/api/movies/whisper',
+                data: id,
+                contentType: "application/x-www-form-urlencoded",
+                traditional: false,
+                success: function (data) {
+                    $("#resultados").text(data);
                 }
-            },
-            error: function(result) {
-                alert("Error");
-            }
-        });   
-    }
+            });  
+        
+    }*/
+
+    
+    
+ 
+    
         /*function enviarId(){
 //data: '{"data":"' + param + '"}'
             $.ajax({
@@ -53,4 +99,3 @@ $(function(){
 
 
 
-})
