@@ -20,6 +20,9 @@ $(function(){
             return true;
         }*/
         //La función que se ejecuta cuando llegan los datos del servidor recibe un string:
+
+
+        /////// MANDA EL ID, TRAE EL TITULO, VIDEO Y LO RENDER
         function enviarId() {
             let id= resultados.textContent
             
@@ -31,12 +34,26 @@ $(function(){
               url: "http://localhost:5000/api/movies/whisper",
               data: "id=" + id,
               beforeSend: inicioEnvio,
-              success: llegadaDatos,
+              success: renderDatos, 
               timeout: 4000,
               error: problemas
             });
             return false;
           }
+          ///home/dit/Downloads/Video Mapa.mp4
+          //https://drive.google.com/file/d/1K5aqZRYzjX6fnq7CQXB0jco2zT3UyzDj/view?usp=share_link
+          //https://www.youtube.com/watch?v=4d20FT080jU
+
+        function renderDatos(datos) {
+            let iframe= document.querySelector('#iframeDiv')
+            
+            iframe.insertAdjacentHTML("afterend",`<video width="320" height="240" controls>
+            <source src=${datos} type="video/mp4">
+            
+            Your browser does not support the video tag.
+          </video>`)
+            
+        }
 
         function llegadaDatos(datos) {
             alert(datos);
