@@ -1,15 +1,17 @@
 $(function(){
 
 //////////////////BTN whisper
-    let btnWhisper= document.querySelector('#btn-chargeVideo')
+    let btnWhisper= document.querySelector('#btn-whisper')
     let resultados = document.querySelector('#resultados')
     let textDiv = document.querySelector('#whisperText')
-
+    let videoData= document.querySelector('#video-data')
      btnWhisper.onclick= function sendAudio() {
         if (resultados.textContent !==null){
-            console.log(resultados.textContent)
-            console.log(" esta es la variable videoId");
-            enviarAudio();
+          //  console.log(resultados.textContent)
+            console.log(" esta es la variable ajax2c.js");
+            //enviarAudio();
+
+            verVideoData(videoData.getAttribute("src"))
         }else{
             console.log("wait for ID");
         }
@@ -27,14 +29,34 @@ $(function(){
           contentType: "application/x-www-form-urlencoded",
           url: "http://localhost:5000/api/movies/whisper/text",
           data: "id=" + id,
-          beforeSend: inicioEnvio,
-          success: renderDatos, 
+          beforeSend: inicioEnvioAudio,
+          success: renderDatosAudio, 
           timeout: 4000,
-          error: problemas
+          error: problemasAudio
         });
         return false;
       }
 
 
-});
+      function inicioEnvioAudio(){
+        alert("inicio envio audio")
+      }
+
+      function renderDatosAudio(datos){
+        alert(datos)
+      }
+
+      function problemasAudio() {
+        alert("problemas audio")
+      }
+
+
+    
+
+    function verVideoData(videoData) {
+        console.log(videoData);
+        
+    }
+
+});//llave de FUNCTION GLOBAL, DONT TOUCH IT PLEASE
 

@@ -8,6 +8,7 @@ $(function(){
             console.log(resultados.textContent)
             console.log(" esta es la variable videoId");
             enviarId();
+            
         }else{
             console.log("wait for ID");
         }
@@ -44,11 +45,12 @@ $(function(){
           //https://drive.google.com/file/d/1K5aqZRYzjX6fnq7CQXB0jco2zT3UyzDj/view?usp=share_link
           //https://www.youtube.com/watch?v=4d20FT080jU
 
+        
         function renderDatos(datos) {
             let iframe= document.querySelector('#iframeDiv')
             
             iframe.insertAdjacentHTML("afterend",`<video width="320" height="240" controls>
-            <source src=${datos} type="video/mp4">
+            <source src=${datos} type="video/mp4" id="video-data">
             
             Your browser does not support the video tag.
           </video>`)
